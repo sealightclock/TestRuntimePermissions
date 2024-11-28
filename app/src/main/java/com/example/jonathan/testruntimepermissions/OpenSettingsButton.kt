@@ -7,7 +7,6 @@ import android.provider.Settings
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.core.content.ContextCompat.startActivity
 
 @Composable
 fun OpenSettingsButton(context: Context) {

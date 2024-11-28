@@ -1,5 +1,6 @@
 package com.example.jonathan.testruntimepermissions
 
+import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,7 +18,7 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun MultiPermissionScreen() {
+fun MultiPermissionScreen(context: Context) {
     val permissions = listOf(
         android.Manifest.permission.CAMERA,
         android.Manifest.permission.ACCESS_FINE_LOCATION
@@ -45,9 +46,13 @@ fun MultiPermissionScreen() {
             else -> {
                 Text("Permissions denied or not requested.")
                 Spacer(modifier = Modifier.height(8.dp))
+                /* Go to request again:
                 Button(onClick = { multiplePermissionsState.launchMultiplePermissionRequest() }) {
                     Text("Grant Permissions")
-                }
+                }*/
+
+                // Direct the user to the Settings page:
+                OpenSettingsButton(context)
             }
         }
     }
